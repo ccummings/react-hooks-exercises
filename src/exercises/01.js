@@ -1,8 +1,10 @@
 // useState Hook
-import React from 'react';
+import React, { useState } from 'react';
 
 function Counter () {
-  return <button>You have clicked TODO times</button>;
+  const [count, setCount] = useState(0);
+  const incrementCount = () => setCount(count + 1);
+  return <button onClick={incrementCount}>You have clicked {count} times</button>;
 }
 
 function UseStateExample () {

@@ -1,11 +1,15 @@
 // useRef Hook
-import React from 'react';
+import React, { useRef } from 'react';
 
 function FocusableInput () {
+  const inputRef = useRef();
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
   return (
     <>
-      <input type='text' />
-      <button>Focus the input</button>
+      <input ref={inputRef} type='text' />
+      <button onClick={focusInput}>Focus the input</button>
     </>
   );
 }

@@ -1,9 +1,14 @@
 // Building a custom hook
 import React, { useState } from 'react';
 
-function Counter () {
+function useCounter () {
   const [count, setCount] = useState(0);
   const incrementCount = () => setCount(count + 1);
+  return { count, incrementCount };
+}
+
+function Counter () {
+  const { count, incrementCount } = useCounter();
   return <button onClick={incrementCount}>You have clicked {count} times</button>;
 }
 
